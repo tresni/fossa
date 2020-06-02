@@ -21,6 +21,6 @@ class Registrar(object):
 
     def __str__(self):
         if hasattr(self, "name"):
-            return "{} ({})".format(self.__class__.__name__, self.name)
+            return "{}@{}".format(self.name, self.__class__.__name__)
         else:
             return self.__class__.__name__
