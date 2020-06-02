@@ -85,8 +85,7 @@ The ResellerClub API documentation can be found at  https://resellerclub.webprop
 api_key = "API KEY"
 ```
 
-If you would like to use the test server, just add `url = "https://rpc.ote.gandi.net/xmlrpc/"` to the configuration block.
-
+Gandi API documentation can be found at https://api.gandi.net/docs/domains/ .
 
 ### Adding new registrars
 
