@@ -25,6 +25,9 @@ setup(
             'resellerclub = fossa.plugin.registrar.resellerclub:ResellerClub',
             'gandi = fossa.plugin.registrar.gandi:Gandi'
         ],
+        'console_scripts': [
+            'fossa = fossa.__main__:cli'
+        ]
     },
     classifiers=[
         'Framework :: Flask',
