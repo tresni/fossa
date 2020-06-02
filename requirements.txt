@@ -1,0 +1,7 @@
+beautifulsoup4
+cachecontrol[filecache]
+click
+python-dateutil
+requests
+stevedore
+toml
