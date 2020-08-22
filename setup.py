@@ -23,7 +23,8 @@ setup(
             'internetbs = fossa.plugin.registrar.internetbs:Internetbs',
             'easyname = fossa.plugin.registrar.easyname:Easyname',
             'resellerclub = fossa.plugin.registrar.resellerclub:ResellerClub',
-            'gandi = fossa.plugin.registrar.gandi:Gandi'
+            'gandi = fossa.plugin.registrar.gandi:Gandi',
+            'namecheap = fossa.plugin.registrar.namecheap:Namecheap'
         ],
         'console_scripts': [
             'fossa = fossa.__main__:cli'

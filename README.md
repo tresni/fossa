@@ -87,6 +87,16 @@ api_key = "API KEY"
 
 Gandi API documentation can be found at https://api.gandi.net/docs/domains/ .
 
+### Namecheap
+
+```toml
+[[registrar.namecheap]]
+```
+
+If you would liek to use the sandbox server, just add `url = "https://api.sandbox.namecheap.com/xml.response"` to the configuration block.
+
+Namecheap API documentation can be found at https://www.namecheap.com/support/api .
+
 ### Adding new registrars
 
 Adding support for new registrars is as easy as writing a plugin that inherits from the [Registrar](fossa/plugin/registrar/__init__.py) class, and then specifying the appropriate `fossa.plugin.registrar` entrypoint in the projects setup.py.  Of course, pull requests to add registrars are also welcome.
