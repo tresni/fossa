@@ -47,6 +47,8 @@ def list(expires_in, registrar):
         if (registrar and str(r) in registrar) or not registrar:
             [domains.append(domain) for domain in r.list()]
 
+    if not domains:
+        return
     max_domain = max(domains, key=lambda k: len(k["domain"]))
     domain_length = len(max_domain["domain"])
     domains = sorted(domains, key=lambda k: k["expire"])
