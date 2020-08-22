@@ -8,6 +8,7 @@ def _epoch(timestamp):
 
 
 class ResellerClub(Registrar):
+    RECORD_LIMIT = 100
     def __init__(self, user_id, api_key, url="https://httpapi.com/", **kwargs):
         self.url = url
         self.user_id = user_id
@@ -26,18 +27,21 @@ class ResellerClub(Registrar):
         return self.session.post(self.url + uri, params=data)
 
     def list(self):
-        page = 0
-        limit = 100
+        page = 1
         while True:
-            response = self.__request('api/domains/search.json', {'no-of-records': limit,
-                                                                  'page-no': page})
-            temp_list = response.json()
+            response = self.__request('api/domains/search.json',
+                                      {'no-of-records': self.RECORD_LIMIT,
+                                       'page-no': page})
+
+            records = response.json()
             if response.status_code != 200:
-                self.error(temp_list['message'])
+                self.error(records['message'])
                 return
 
-            for index in range(1, int(temp_list['recsonpage']) + 1):
-                entry = temp_list[str(index)]
+            count = int(records['recsonpage'])
+
+            for index in range(1, count + 1):
+                entry = records[str(index)]
                 yield {
                     'id': entry['entity.entityid'],
                     'domain': entry['entity.description'],
@@ -47,6 +51,6 @@ class ResellerClub(Registrar):
                     'autoRenew': entry['orders.autorenew'] == 'true',
                     'registrar': self
                 }
-            page += 1
-            if page * limit >= int(temp_list['recsindb']):
+            if count < self.RECORD_LIMIT:
                 break
+            page += 1

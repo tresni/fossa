@@ -39,7 +39,7 @@ class Porkbun(Registrar):
     def list(self):
         response = self.session.get('https://porkbun.com/account/domains', allow_redirects=False)
         if response.status_code != 200:
-            self.error("Invalid login information, update cookie")
+            self.error("Invalid login information, update cookie & user-agent")
             return
         try:
             soup = BeautifulSoup(response.text, "lxml")
