@@ -35,7 +35,9 @@ class Namecheap(Registrar):
 
     def list(self):
         page = 1
-        totalPages = 1 # Lies, but...
+        # We lie about the totalPages initially, assuming there will be at least one
+        # The actual numbe of pages is retrieved from the first request
+        totalPages = 1
         while page <= totalPages:
             response = self.session.post(self.url,
                                          self._required_data("namecheap.domains.getList",
