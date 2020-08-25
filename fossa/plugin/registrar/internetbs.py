@@ -1,6 +1,5 @@
 from fossa.plugin.registrar import Registrar
 
-import click
 from dateutil.parser import parse
 
 # https://internetbs.net/internet-bs-api.pdf
