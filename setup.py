@@ -14,6 +14,7 @@ setup(
         "click",
         "python-dateutil",
         "requests",
+        "requests-cache",
         "stevedore",
         "toml",
     ],

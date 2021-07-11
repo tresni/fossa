@@ -3,5 +3,6 @@ cachecontrol[filecache]
 click
 python-dateutil
 requests
+requests-cache
 stevedore
 toml
